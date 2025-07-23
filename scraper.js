@@ -76,7 +76,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
     .evaluate((el) => el.children.length);
   console.log(`📆 Number of available dates: ${count}`);
 
-  if (count > 3) {
+  if (count > 4) {
     await axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       chat_id: CHAT_ID,
       text: `🎬 New Dates Available at Cineplex Vaughan!`,
