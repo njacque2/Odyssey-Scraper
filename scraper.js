@@ -49,7 +49,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
     .evaluate((el) => el.children.length);
   console.log(`Number of children: ${count}`);
 
-  if (count > 4) {
+  if (count > 3) {
     axios.post(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       chat_id: CHAT_ID,
       text: `New Dates Available!`,
