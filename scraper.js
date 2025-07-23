@@ -20,7 +20,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
   console.log("🌐 Navigating to Cineplex page...");
   await page.goto(
     "https://www.cineplex.com/theatre/cineplex-cinemas-vaughan?openTM=true",
-    { waitUntil: "networkidle" }
+    { waitUntil: "domcontentloaded", timeout: 30000 }
   );
   console.log("✅ Page loaded");
 
