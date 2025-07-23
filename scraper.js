@@ -21,7 +21,7 @@ const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
   // ✅ Accept cookies if popup appears
   try {
     await page.waitForSelector("#onetrust-accept-btn-handler", {
-      timeout: 5000,
+      timeout: 10000,
     });
     await page.click("#onetrust-accept-btn-handler");
     console.log("🍪 Accepted cookies");
