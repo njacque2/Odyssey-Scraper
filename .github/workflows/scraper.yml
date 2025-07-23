@@ -2,8 +2,8 @@ name: Cineplex Scraper
 
 on:
   schedule:
-    - cron: '1 * * * *'  # runs at 1 minute past every hour
-  workflow_dispatch:       # allows manual run from GitHub UI
+    - cron: '1 * * * *'  # every hour at minute 1
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
 
       - name: Run scraper
         run: node scraper.js
