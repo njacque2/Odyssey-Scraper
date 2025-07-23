@@ -2,7 +2,7 @@ name: Cineplex Scraper
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '3,59 * * * *'
   workflow_dispatch:
 
 jobs:
