@@ -2,7 +2,7 @@ name: Cineplex Scraper
 
 on:
   schedule:
-    - cron: '1 * * * *'  # every hour at minute 1
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,7 @@ jobs:
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
     steps:
       - uses: actions/checkout@v3
 
@@ -18,6 +19,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ runner.os }}
+          restore-keys: |
+            playwright-browsers-
 
       - name: Install dependencies
         run: npm install
